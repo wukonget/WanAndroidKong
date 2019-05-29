@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ListCardView"
+>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+        >
+
+            <TextView
+                    android:id="@+id/authorName"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ListItemInfo"
+            />
+
+            <TextView
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_height="wrap_content"
+                    style="@style/ListItemInfo"
+            />
+
+        </LinearLayout>
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ListItemTitle"
+        />
+
+        <me.gujun.android.taggroup.TagGroup
+                android:id="@+id/tagGroup"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                app:atg_textSize="10sp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+        >
+
+            <TextView
+                    android:id="@+id/origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ListItemInfo"
+            />
+
+            <TextView
+                    android:id="@+id/zan"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_height="wrap_content"
+                    style="@style/ListItemInfo"
+            />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="launcherStyle" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/lufei</item>
+    </style>
+
+    <style name="ListCardView" parent="CardView.Light">
+        <item name="cardCornerRadius">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@android:color/background_light</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPadding">@dimen/common_padding</item>
+    </style>
+
+</resources>
