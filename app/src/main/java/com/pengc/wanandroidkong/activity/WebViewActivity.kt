@@ -13,13 +13,13 @@ class WebViewActivity : AppCompatActivity() {
 
     companion object{
         public val WEBVIEWURLKEY = "webViewUrl"
+        public val WEBVIEWTITLEKEY = "webViewTitle"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_webview)
-        setSupportActionBar(webToolbar)
-        webToolbar.setNavigationOnClickListener { onBackPressed() }
+        back_arrow.setOnClickListener { onBackPressed() }
         openWebView()
     }
 
@@ -30,10 +30,16 @@ class WebViewActivity : AppCompatActivity() {
             .createAgentWeb()
             .ready()
             .go(getUrl())
+        web_title.text = getWebTitle()
+        web_title.isSelected = true
     }
 
     private fun getUrl(): String? {
        return intent.getStringExtra(WEBVIEWURLKEY)
+    }
+
+    private fun getWebTitle():String?{
+        return intent.getStringExtra(WEBVIEWTITLEKEY)
     }
 
     override fun onBackPressed() {

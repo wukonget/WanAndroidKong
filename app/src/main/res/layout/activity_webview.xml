@@ -4,13 +4,35 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <androidx.appcompat.widget.Toolbar
-            android:id="@+id/webToolbar"
+    <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:minHeight="?android:attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
-    />
+            android:padding="@dimen/common_padding"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_arrow_back_white_24dp"
+        />
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_normal"
+                android:layout_gravity="center_vertical"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:id="@+id/web_title"
+                android:text="@string/loading"
+
+        />
+    </LinearLayout>
     <LinearLayout
             android:id="@+id/webViewContainer"
             android:orientation="vertical"

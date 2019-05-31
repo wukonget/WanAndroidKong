@@ -62,7 +62,13 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
 
             })
         }, rootView.recyclerView)
-        mMainListAdapter.setOnItemClickListener { adapter, _, position -> WebUtil.loadUrl(activity as AppCompatActivity,(adapter as MainListAdapter).data[position].link) }
+        mMainListAdapter.setOnItemClickListener { adapter, _, position ->
+            val data = (adapter as MainListAdapter).data[position]
+            WebUtil.loadUrl(
+            activity as AppCompatActivity,
+                data.link,
+                data.title
+        ) }
         rootView.recyclerView.adapter = mMainListAdapter
         rootView.recyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
     }
@@ -149,7 +155,10 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         bannerData?.forEach { images.add(it.imagePath) }
         rootView.banner.setImages(images)
         rootView.banner.setOnBannerListener { position ->
-            bannerData?.get(position)?.url?.let { WebUtil.loadUrl(activity as AppCompatActivity, it) }
+            val bannerBean = bannerData?.get(position)
+            if(bannerBean!=null) {
+                WebUtil.loadUrl(activity as AppCompatActivity, bannerBean.url, bannerBean.title)
+            }
         }
         rootView.banner.start()
         rootView.banner.startAutoPlay()
