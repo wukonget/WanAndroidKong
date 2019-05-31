@@ -1,7 +1,6 @@
 package com.pengc.wanandroidkong.fragment
 
 import android.os.Bundle
-import androidx.appcompat.widget.AppCompatTextView
 import com.pengc.wanandroidkong.R
 import com.pengc.wanandroidkong.base.BaseLazyFragment
 import com.pengc.wanandroidkong.presenter.MePresenter

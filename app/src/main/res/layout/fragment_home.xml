@@ -23,7 +23,16 @@
                     app:layout_collapseMode="parallax"
             />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-
+        <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_small"
+                android:id="@+id/tixi"
+                android:textColor="@color/colorAccent"
+                android:background="@color/white"
+                android:padding="@dimen/common_padding"
+                android:text="@string/allall"
+        />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

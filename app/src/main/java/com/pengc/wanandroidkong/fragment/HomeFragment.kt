@@ -3,9 +3,11 @@ package com.pengc.wanandroidkong.fragment
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.ViewAnimationUtils
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,15 +15,20 @@ import com.pengc.wan_main.app.utils.GlideImageLoader
 import com.pengc.wan_main.mvp.model.entity.MainListData
 import com.pengc.wan_main.mvp.ui.adapter.MainListAdapter
 import com.pengc.wanandroidkong.R
+import com.pengc.wanandroidkong.adapters.DialogTixiAdapter
 import com.pengc.wanandroidkong.base.BaseLazyFragment
 import com.pengc.wanandroidkong.bean.BannerBean
+import com.pengc.wanandroidkong.bean.HotSearchKey
+import com.pengc.wanandroidkong.bean.TixiBean
 import com.pengc.wanandroidkong.presenter.HomePresenter
-import com.pengc.wanandroidkong.presenter.MainPresenter
 import com.pengc.wanandroidkong.utils.WebUtil
+import kotlinx.android.synthetic.main.dialog_select_tixi.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment:BaseLazyFragment<HomePresenter>() {
+    private var mDialogR1Adapter: DialogTixiAdapter = DialogTixiAdapter()
+    private var mDialogR2Adapter = DialogTixiAdapter()
     private var windowSize: Double = 0.0
     private lateinit var mMainListAdapter: MainListAdapter
     private var loadingCount = 0
@@ -29,6 +36,8 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
     private fun loadData() {
         p.loadBanner()
         p.loadListData(0,true)
+        p.loadSearchKeys()
+        p.loadTixi()
     }
 
     private fun initRecycler() {
@@ -62,7 +71,49 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         initBanner()
         initRecycler()
         initFab()
+        initOther()
         loadData()
+    }
+
+    private fun initOther() {
+        rootView.tixi.setOnClickListener {
+            showSelectTixiDialog()
+        }
+    }
+
+    /**
+     * 显示体系选择弹框
+     */
+    private fun showSelectTixiDialog() {
+
+        val dialogView = layoutInflater.inflate(R.layout.dialog_select_tixi,null,false)
+        val r1 = dialogView.rv_dialog_1
+        val r2 = dialogView.rv_dialog_2
+        r1.layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
+        r2.layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
+        r1.adapter = mDialogR1Adapter
+        r2.adapter = mDialogR2Adapter
+        mDialogR1Adapter.setOnItemClickListener { adapter, view, position ->
+            mDialogR2Adapter.setNewData((adapter.data[position] as TixiBean).children)
+            mDialogR1Adapter.setSelect(position)
+            mDialogR2Adapter.setSelect(0)
+        }
+
+        mDialogR2Adapter.setOnItemClickListener { adapter, view, position ->
+            mDialogR2Adapter.setSelect(position)
+        }
+
+        val selectTixiDialog = AlertDialog.Builder(activity as Context)
+            .setView(dialogView)
+            .setPositiveButton("确定") { _, _ ->
+                    tixi.text = "${mDialogR1Adapter.getSelectedData().name}/${mDialogR2Adapter.getSelectedData().name}"
+                    p.loadListData(0,true,mDialogR2Adapter.getSelectedData().id)
+            }.setNegativeButton("取消",null)
+            .create()
+        selectTixiDialog.window.setWindowAnimations(R.style.DialogAnimations)
+        if(!selectTixiDialog.isShowing){
+            selectTixiDialog.show()
+        }
     }
 
     private fun initFab() {
@@ -72,6 +123,8 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         rootView.back_search.setOnClickListener {
             showSearchPop(false)
         }
+
+        rootView.av.setOnClickListener {  }
     }
 
     private fun initBanner() {
@@ -161,5 +214,26 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         }
     }
 
+    override fun onActivityBackPressed(): Boolean {
+        if(rootView.av.visibility == View.VISIBLE) {
+            showSearchPop(false)
+            return true
+        }else{
+            return false
+        }
+    }
 
+    fun setSearchKeys(searchKeysData: List<HotSearchKey>?) {
+        val tags = ArrayList<String>()
+        searchKeysData?.forEach { tags.add(it.name) }
+        searchTagGroup.setTags(tags)
+        searchTagGroup.setOnTagClickListener {
+
+        }
+    }
+
+    fun setTixiData(tixiData: List<TixiBean>?) {
+        mDialogR1Adapter.setNewData(tixiData)
+        mDialogR2Adapter.setNewData((tixiData?.get(0) as TixiBean).children)
+    }
 }

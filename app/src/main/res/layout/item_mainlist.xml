@@ -32,6 +32,7 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_small"
                     style="@style/ListItemInfo"
             />
 
@@ -47,11 +48,8 @@
                 android:id="@+id/tagGroup"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
-                app:atg_textSize="10sp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:paddingTop="1dp"
-                android:paddingBottom="1dp"
+                app:atg_textSize="@dimen/textsize_small"
+                app:atg_verticalPadding="@dimen/text_padding"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_height="wrap_content"/>
@@ -75,6 +73,7 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_small"
                     style="@style/ListItemInfo"
             />
 

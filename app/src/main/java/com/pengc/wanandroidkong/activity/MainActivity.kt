@@ -57,4 +57,15 @@ class MainActivity : BaseActivity<MainPresenter>() {
     override fun newP(): MainPresenter {
         return MainPresenter()
     }
+
+    override fun onBackPressed() {
+        val fragments = (mainViewPager.adapter as MainFragmentAdapter).fragments
+        var skipSuper = false
+        fragments.forEach {
+            skipSuper = skipSuper or it.onActivityBackPressed()
+        }
+        if(!skipSuper) {
+            super.onBackPressed()
+        }
+    }
 }
