@@ -3,8 +3,8 @@ package com.pengc.wan_main.mvp.ui.adapter
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.pengc.wan_main.mvp.model.entity.MainListItemData
 import com.pengc.wanandroidkong.R
+import com.pengc.wanandroidkong.bean.MainListItemData
 import me.gujun.android.taggroup.TagGroup
 
 class MainListAdapter(layoutResId:Int = R.layout.item_mainlist) : BaseQuickAdapter<MainListItemData,BaseViewHolder>(layoutResId,ArrayList()) {

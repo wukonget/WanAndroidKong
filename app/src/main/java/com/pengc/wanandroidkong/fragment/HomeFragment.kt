@@ -170,7 +170,7 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         if(pullToRefresh) {
             mMainListAdapter.setNewData(data?.datas)
         }else{
-            mMainListAdapter.addData(data?.datas)
+            data?.datas?.let { mMainListAdapter.addData(it) }
         }
     }
 

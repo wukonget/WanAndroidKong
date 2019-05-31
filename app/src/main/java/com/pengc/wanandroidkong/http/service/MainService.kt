@@ -1,8 +1,8 @@
 package com.pengc.wanandroidkong.http.service
 
-import com.pengc.wan_main.mvp.model.entity.MainListData
 import com.pengc.wanandroidkong.bean.BannerBean
 import com.pengc.wanandroidkong.bean.HotSearchKey
+import com.pengc.wanandroidkong.bean.MainListData
 import com.pengc.wanandroidkong.bean.TixiBean
 import com.pengc.wanandroidkong.http.BaseResponse
 import io.reactivex.Observable
