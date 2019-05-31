@@ -1,45 +1,45 @@
-package com.pengc.wan_main.mvp.model.entity
+package com.pengc.wanandroidkong.bean
 
 data class MainListData(
-    val curPage: Int,
-    val offset: Int,
-    val over: Boolean,
-    val pageCount: Int,
-    val size: Int,
-    val total: Int,
-    val datas: List<MainListItemData>
+    var curPage: Int,
+    var offset: Int,
+    var over: Boolean,
+    var pageCount: Int,
+    var size: Int,
+    var total: Int,
+    var datas: List<MainListItemData>
 ) {
 }
 
 
 data class MainListItemData(
-    val apkLink: String,
-    val author: String,
-    val chapterId: String,
-    val chapterName: String,
-    val collect: Boolean,
-    val courseId: String,
-    val desc: String,
-    val envelopePic: String,
-    val fresh: Boolean,
-    val id: String,
-    val link: String,
-    val niceDate: String,
-    val origin: String,
-    val prefix: String,
-    val projectLink: String,
-    val publishTime: String,
-    val superChapterId: String,
-    val superChapterName: String,
-    val title: String,
-    val type: String,
-    val userId: String,
-    val visible: String,
-    val zan: Int,
-    val tags: List<TagData>
+    var apkLink: String,
+    var author: String,
+    var chapterId: String,
+    var chapterName: String,
+    var collect: Boolean,
+    var courseId: String,
+    var desc: String,
+    var envelopePic: String,
+    var fresh: Boolean,
+    var id: String,
+    var link: String,
+    var niceDate: String,
+    var origin: String,
+    var prefix: String,
+    var projectLink: String,
+    var publishTime: String,
+    var superChapterId: String,
+    var superChapterName: String,
+    var title: String,
+    var type: String,
+    var userId: String,
+    var visible: String,
+    var zan: Int,
+    var tags: List<TagData>
 ) {}
 
 data class TagData(
-    val name: String,
-    val url: String
+    var name: String,
+    var url: String
 ) {}

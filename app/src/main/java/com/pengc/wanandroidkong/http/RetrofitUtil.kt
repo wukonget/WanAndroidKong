@@ -13,12 +13,12 @@ class RetrofitUtil {
 
     companion object {
 
-        val logger = Logger.getLogger("RetrofitUtil")
+        val logger: Logger = Logger.getLogger("RetrofitUtil")
 
         private var httpLogger = MyHttpLogger()
         private var mOkHttpClient: OkHttpClient? = null
 
-        fun buildRetrofit(baseUrl: String = Api.BASE_URL): Retrofit {
+        private fun buildRetrofit(baseUrl: String = Api.BASE_URL): Retrofit {
             val builder = Retrofit.Builder()
                 .client(getSingleOkHttpClient())
                 .baseUrl(baseUrl)
@@ -41,7 +41,7 @@ class RetrofitUtil {
 
         private fun buildClient(): OkHttpClient {
             val logInterceptor = HttpLoggingInterceptor(httpLogger)
-            logInterceptor.level = HttpLoggingInterceptor.Level.BODY;
+            logInterceptor.level = HttpLoggingInterceptor.Level.BODY
             val okHttpClientBuilder = OkHttpClient().newBuilder()
                 .addNetworkInterceptor(logInterceptor)
                 .connectTimeout(60, TimeUnit.SECONDS)

@@ -1,9 +1,9 @@
 package com.pengc.wanandroidkong.presenter
 
 import cn.droidlover.xdroidmvp.mvp.XPresent
-import com.pengc.wan_main.mvp.model.entity.MainListData
 import com.pengc.wanandroidkong.bean.BannerBean
 import com.pengc.wanandroidkong.bean.HotSearchKey
+import com.pengc.wanandroidkong.bean.MainListData
 import com.pengc.wanandroidkong.bean.TixiBean
 import com.pengc.wanandroidkong.fragment.HomeFragment
 import com.pengc.wanandroidkong.http.BaseResponse
@@ -29,7 +29,7 @@ class HomePresenter:XPresent<HomeFragment>() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<BaseResponse<List<BannerBean>>> {
                 override fun onSubscribe(d: Disposable) {
-                    logger.info("onSubscribe ${d.toString()}")
+                    logger.info("onSubscribe $d")
                 }
 
                 override fun onComplete() {
@@ -133,7 +133,7 @@ class HomePresenter:XPresent<HomeFragment>() {
                 override fun onNext(t: BaseResponse<List<TixiBean>>) {
                     val res = t.data as ArrayList<TixiBean>
                     val allItemChildrenList = ArrayList<TixiBean>()
-                    val allItemChildren = TixiBean(-1,-1,"所有",-1,-1,false,1,ArrayList<TixiBean>())
+                    val allItemChildren = TixiBean(-1,-1,"所有",-1,-1,false,1,ArrayList())
                     allItemChildrenList.add(allItemChildren)
                     val allItem = TixiBean(-1,-1,"所有",-1,-1,false,1,allItemChildrenList)
                     res.add(0,allItem)//添加默认的  所有/所有  item

@@ -12,13 +12,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pengc.wan_main.app.utils.GlideImageLoader
-import com.pengc.wan_main.mvp.model.entity.MainListData
 import com.pengc.wan_main.mvp.ui.adapter.MainListAdapter
 import com.pengc.wanandroidkong.R
 import com.pengc.wanandroidkong.adapters.DialogTixiAdapter
 import com.pengc.wanandroidkong.base.BaseLazyFragment
 import com.pengc.wanandroidkong.bean.BannerBean
 import com.pengc.wanandroidkong.bean.HotSearchKey
+import com.pengc.wanandroidkong.bean.MainListData
 import com.pengc.wanandroidkong.bean.TixiBean
 import com.pengc.wanandroidkong.presenter.HomePresenter
 import com.pengc.wanandroidkong.utils.WebUtil
@@ -90,6 +90,8 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
     /**
      * 显示体系选择弹框
      */
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    @SuppressLint("InflateParams", "SetTextI18n")
     private fun showSelectTixiDialog() {
 
         val dialogView = layoutInflater.inflate(R.layout.dialog_select_tixi,null,false)
@@ -99,13 +101,13 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         r2.layoutManager = LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
         r1.adapter = mDialogR1Adapter
         r2.adapter = mDialogR2Adapter
-        mDialogR1Adapter.setOnItemClickListener { adapter, view, position ->
+        mDialogR1Adapter.setOnItemClickListener { adapter, _, position ->
             mDialogR2Adapter.setNewData((adapter.data[position] as TixiBean).children)
             mDialogR1Adapter.setSelect(position)
             mDialogR2Adapter.setSelect(0)
         }
 
-        mDialogR2Adapter.setOnItemClickListener { adapter, view, position ->
+        mDialogR2Adapter.setOnItemClickListener { _, _, position ->
             mDialogR2Adapter.setSelect(position)
         }
 
@@ -168,10 +170,11 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         if(pullToRefresh) {
             mMainListAdapter.setNewData(data?.datas)
         }else{
-            data?.datas?.let { mMainListAdapter.addData(it) }
+            mMainListAdapter.addData(data?.datas)
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun initWindowSize() {
         val width = if(activity == null) 0 else activity!!.windowManager.defaultDisplay.width
         val height = if(activity == null) 0 else activity!!.windowManager.defaultDisplay.height
@@ -179,8 +182,8 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
     }
 
     private fun showSearchPop(b: Boolean) {
-        var startR = 0.0F
-        var endR = 0.0F
+        val startR: Float
+        val endR: Float
         if (b) {
             rootView.banner.stopAutoPlay()
             startR = (rootView.fab_search.width / 2).toFloat()
@@ -224,11 +227,11 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
     }
 
     override fun onActivityBackPressed(): Boolean {
-        if(rootView.av.visibility == View.VISIBLE) {
+        return if(rootView.av.visibility == View.VISIBLE) {
             showSearchPop(false)
-            return true
+            true
         }else{
-            return false
+            false
         }
     }
 

@@ -7,7 +7,7 @@ import com.pengc.wan_main.mvp.model.entity.MainListItemData
 import com.pengc.wanandroidkong.R
 import me.gujun.android.taggroup.TagGroup
 
-class MainListAdapter(val layoutResId:Int = R.layout.item_mainlist, var dataList:List<MainListItemData> = ArrayList<MainListItemData>()) : BaseQuickAdapter<MainListItemData,BaseViewHolder>(layoutResId,dataList) {
+class MainListAdapter(layoutResId:Int = R.layout.item_mainlist) : BaseQuickAdapter<MainListItemData,BaseViewHolder>(layoutResId,ArrayList()) {
     override fun convert(helper: BaseViewHolder?, item: MainListItemData?) {
         helper?.setText(R.id.title,item?.title)
         helper?.setText(R.id.origin,"来源:${item?.superChapterName}-${item?.chapterName}")
@@ -16,7 +16,7 @@ class MainListAdapter(val layoutResId:Int = R.layout.item_mainlist, var dataList
         helper?.setText(R.id.date,item?.niceDate)
 
         val tagGroup = helper?.getView<TagGroup>(R.id.tagGroup)
-        var tagStrings = ArrayList<String>()
+        val tagStrings = ArrayList<String>()
         item?.tags?.forEach {
             tagStrings.add(it.name)
         }

@@ -8,9 +8,9 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.pengc.wanandroidkong.R
 import com.pengc.wanandroidkong.bean.TixiBean
 
-class DialogTixiAdapter(var dataList:List<TixiBean> = ArrayList<TixiBean>()):BaseQuickAdapter<TixiBean,BaseViewHolder>(R.layout.item_sim,dataList) {
-    var currentSelection = 0
-    var oldSelection = 0
+class DialogTixiAdapter :BaseQuickAdapter<TixiBean,BaseViewHolder>(R.layout.item_sim,ArrayList()) {
+    private var currentSelection = 0
+    private var oldSelection = 0
     override fun convert(helper: BaseViewHolder?, item: TixiBean?) {
         helper?.setText(R.id.text,item?.name)
         if(item == data[currentSelection]){

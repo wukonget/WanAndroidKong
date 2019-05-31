@@ -9,8 +9,8 @@ class WebUtil {
     companion object{
         fun loadUrl(activity: AppCompatActivity, url: String, title: String){
             val intent = Intent(activity, WebViewActivity::class.java)
-            intent.putExtra(WebViewActivity.WEBVIEWURLKEY,url)
-            intent.putExtra(WebViewActivity.WEBVIEWTITLEKEY,title)
+            intent.putExtra(WebViewActivity.WEB_VIEW_URL_KEY,url)
+            intent.putExtra(WebViewActivity.WEB_VIEW_TITLE_KEY,title)
             activity.startActivity(intent)
         }
     }

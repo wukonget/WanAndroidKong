@@ -12,8 +12,8 @@ class WebViewActivity : AppCompatActivity() {
     private var mAgentWeb: AgentWeb? = null
 
     companion object{
-        public val WEBVIEWURLKEY = "webViewUrl"
-        public val WEBVIEWTITLEKEY = "webViewTitle"
+        const val WEB_VIEW_URL_KEY = "webViewUrl"
+        const val WEB_VIEW_TITLE_KEY = "webViewTitle"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +35,11 @@ class WebViewActivity : AppCompatActivity() {
     }
 
     private fun getUrl(): String? {
-       return intent.getStringExtra(WEBVIEWURLKEY)
+       return intent.getStringExtra(WEB_VIEW_URL_KEY)
     }
 
     private fun getWebTitle():String?{
-        return intent.getStringExtra(WEBVIEWTITLEKEY)
+        return intent.getStringExtra(WEB_VIEW_TITLE_KEY)
     }
 
     override fun onBackPressed() {

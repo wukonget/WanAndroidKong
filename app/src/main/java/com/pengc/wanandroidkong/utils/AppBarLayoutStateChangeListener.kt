@@ -13,21 +13,25 @@ abstract class AppBarLayoutStateChangeListener : AppBarLayout.OnOffsetChangedLis
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
-        if (verticalOffset == 0) {
-            if (mCurrentState != State.EXPANDED) {
-                onStateChanged(appBarLayout, State.EXPANDED)
+        when {
+            verticalOffset == 0 -> {
+                if (mCurrentState != State.EXPANDED) {
+                    onStateChanged(appBarLayout, State.EXPANDED)
+                }
+                mCurrentState = State.EXPANDED
             }
-            mCurrentState = State.EXPANDED
-        } else if (Math.abs(verticalOffset) >= appBarLayout.totalScrollRange) {
-            if (mCurrentState != State.COLLAPSED) {
-                onStateChanged(appBarLayout, State.COLLAPSED)
+            Math.abs(verticalOffset) >= appBarLayout.totalScrollRange -> {
+                if (mCurrentState != State.COLLAPSED) {
+                    onStateChanged(appBarLayout, State.COLLAPSED)
+                }
+                mCurrentState = State.COLLAPSED
             }
-            mCurrentState = State.COLLAPSED
-        } else {
-            if (mCurrentState != State.INTERMEDIATE) {
-                onStateChanged(appBarLayout, State.INTERMEDIATE)
+            else -> {
+                if (mCurrentState != State.INTERMEDIATE) {
+                    onStateChanged(appBarLayout, State.INTERMEDIATE)
+                }
+                mCurrentState = State.INTERMEDIATE
             }
-            mCurrentState = State.INTERMEDIATE
         }
     }
 

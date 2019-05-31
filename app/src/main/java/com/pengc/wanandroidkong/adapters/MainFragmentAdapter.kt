@@ -9,7 +9,7 @@ import com.pengc.wanandroidkong.fragment.TodoFragment
 
 class MainFragmentAdapter(fragmentManager: FragmentManager):FragmentPagerAdapter(fragmentManager) {
 
-    public val fragments = arrayOf(HomeFragment(),TodoFragment(),MeFragment())
+    val fragments = arrayOf(HomeFragment(),TodoFragment(),MeFragment())
 
     override fun getItem(position: Int): Fragment {
         return fragments[position]
