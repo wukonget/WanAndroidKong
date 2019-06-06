@@ -25,8 +25,9 @@ class MainActivity : BaseActivity<MainPresenter>() {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> mainViewPager.currentItem = 0
-                R.id.nav_todo -> mainViewPager.currentItem = 1
-                R.id.nav_me -> mainViewPager.currentItem = 2
+                R.id.nav_nav -> mainViewPager.currentItem = 1
+                R.id.nav_todo -> mainViewPager.currentItem = 2
+                R.id.nav_me -> mainViewPager.currentItem = 3
                 else -> mainViewPager.currentItem = 0
             }
             true

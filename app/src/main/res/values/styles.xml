@@ -10,7 +10,7 @@
 
     <style name="launcherStyle" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/lufei</item>
+        <item name="android:windowBackground">@drawable/wak_launch</item>
     </style>
 
     <style name="ListCardView" parent="CardView.Light">

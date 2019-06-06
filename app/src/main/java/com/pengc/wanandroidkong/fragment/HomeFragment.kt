@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pengc.wan_main.app.utils.GlideImageLoader
 import com.pengc.wan_main.mvp.ui.adapter.MainListAdapter
 import com.pengc.wanandroidkong.R
+import com.pengc.wanandroidkong.activity.WebViewActivity
 import com.pengc.wanandroidkong.adapters.DialogTixiAdapter
 import com.pengc.wanandroidkong.base.BaseLazyFragment
 import com.pengc.wanandroidkong.bean.BannerBean
@@ -21,7 +22,6 @@ import com.pengc.wanandroidkong.bean.HotSearchKey
 import com.pengc.wanandroidkong.bean.MainListData
 import com.pengc.wanandroidkong.bean.TixiBean
 import com.pengc.wanandroidkong.presenter.HomePresenter
-import com.pengc.wanandroidkong.utils.WebUtil
 import kotlinx.android.synthetic.main.dialog_select_tixi.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -64,7 +64,7 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         }, rootView.recyclerView)
         mMainListAdapter.setOnItemClickListener { adapter, _, position ->
             val data = (adapter as MainListAdapter).data[position]
-            WebUtil.loadUrl(
+            WebViewActivity.launch(
             activity as AppCompatActivity,
                 data.link,
                 data.title
@@ -159,7 +159,7 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         rootView.banner.setOnBannerListener { position ->
             val bannerBean = bannerData?.get(position)
             if(bannerBean!=null) {
-                WebUtil.loadUrl(activity as AppCompatActivity, bannerBean.url, bannerBean.title)
+                WebViewActivity.launch(activity as AppCompatActivity, bannerBean.url, bannerBean.title)
             }
         }
         rootView.banner.start()
@@ -235,12 +235,16 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun setSearchKeys(searchKeysData: List<HotSearchKey>?) {
         val tags = ArrayList<String>()
         searchKeysData?.forEach { tags.add(it.name) }
         searchTagGroup.setTags(tags)
         searchTagGroup.setOnTagClickListener {
-
+            val t = search_edittext.text.toString()
+            if(!t.contains(" $it") && !t.contains("$it ")) {
+                search_edittext.setText("$t $it")
+            }
         }
     }
 

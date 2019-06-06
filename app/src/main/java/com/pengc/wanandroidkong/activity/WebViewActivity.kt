@@ -1,5 +1,7 @@
 package com.pengc.wanandroidkong.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,13 @@ class WebViewActivity : AppCompatActivity() {
     companion object{
         const val WEB_VIEW_URL_KEY = "webViewUrl"
         const val WEB_VIEW_TITLE_KEY = "webViewTitle"
+
+        fun launch(context: Context, url:String, title:String){
+            val intent = Intent(context, WebViewActivity::class.java)
+            intent.putExtra(WebViewActivity.WEB_VIEW_URL_KEY,url)
+            intent.putExtra(WebViewActivity.WEB_VIEW_TITLE_KEY,title)
+            context.startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
