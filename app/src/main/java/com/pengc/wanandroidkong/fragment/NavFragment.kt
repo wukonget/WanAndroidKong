@@ -2,6 +2,7 @@ package com.pengc.wanandroidkong.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pengc.wanandroidkong.R
@@ -13,6 +14,7 @@ import com.pengc.wanandroidkong.bean.NavSection
 import com.pengc.wanandroidkong.bean.NavTypeBean
 import com.pengc.wanandroidkong.presenter.NavPresenter
 import com.pengc.wanandroidkong.utils.TopSmoothScroller
+import kotlinx.android.synthetic.main.fragment_nav.*
 import kotlinx.android.synthetic.main.fragment_nav.view.*
 
 class NavFragment : BaseLazyFragment<NavPresenter>() {
@@ -25,7 +27,7 @@ class NavFragment : BaseLazyFragment<NavPresenter>() {
     private lateinit var topSmoothScroller :TopSmoothScroller
 
     override fun showLoading(show: Boolean) {
-
+        loadingView.visibility = if(show) View.VISIBLE else View.GONE
     }
 
     override fun initData(savedInstanceState: Bundle?) {

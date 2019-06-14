@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoadingView">
+        <attr name="LCenterText" format="string"/>
+        <attr name="LCenterTextSize" format="dimension"/>
+        <attr name="LCenterTextColor" format="color"/>
+        <attr name="LCircleMaxR" format="dimension"/>
+        <attr name="LCircleMinR" format="dimension"/>
+        <attr name="LRepeatDuration" format="integer"/>
+        <attr name="LCircleColor" format="color"/>
+        <attr name="LLoadingText" format="string"/>
+        <attr name="LLoadingTextSize" format="dimension"/>
+        <attr name="LLoadingTextColor" format="color"/>
+        <attr name="LLoadingTextMarginTop" format="dimension"/>
+        <attr name="LLoadingTextPosition" format="enum">
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="2"/>
+        </attr>
+        <attr name="LStorkeWidth" format="dimension"/>
+
+    </declare-styleable>
+</resources>
