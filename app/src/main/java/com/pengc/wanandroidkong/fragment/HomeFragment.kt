@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pengc.wan_main.app.utils.GlideImageLoader
 import com.pengc.wan_main.mvp.ui.adapter.MainListAdapter
 import com.pengc.wanandroidkong.R
+import com.pengc.wanandroidkong.activity.SearchActivity
 import com.pengc.wanandroidkong.activity.WebViewActivity
 import com.pengc.wanandroidkong.adapters.DialogTixiAdapter
 import com.pengc.wanandroidkong.base.BaseLazyFragment
@@ -84,6 +85,11 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
     private fun initOther() {
         rootView.tixi.setOnClickListener {
             showSelectTixiDialog()
+        }
+
+        rootView.pop_searchBtn.setOnClickListener {
+            SearchActivity.launch(activity as Context,rootView.search_edittext.text.toString())
+            showSearchPop(false)
         }
     }
 
@@ -217,6 +223,7 @@ class HomeFragment:BaseLazyFragment<HomePresenter>() {
             }
         })
         closeAnim.start()
+        search_edittext.setText("")
     }
 
     override fun onResumeLazy() {

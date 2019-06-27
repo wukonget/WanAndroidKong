@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.gyf.immersionbar.ktx.immersionBar
 import com.just.agentweb.AgentWeb
 import com.pengc.wanandroidkong.R
 import kotlinx.android.synthetic.main.activity_webview.*
@@ -30,6 +31,12 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_webview)
         back_arrow.setOnClickListener { onBackPressed() }
         openWebView()
+        immersionBar {
+            navigationBarColor(R.color.colorAccent)
+            statusBarColor(R.color.colorPrimary)
+            autoStatusBarDarkModeEnable(true,0.2f)
+            fitsSystemWindows(true)
+        }
     }
 
     private fun openWebView() {
