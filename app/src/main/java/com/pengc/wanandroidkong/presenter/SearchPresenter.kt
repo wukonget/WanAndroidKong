@@ -53,6 +53,7 @@ class SearchPresenter:XPresent<SearchActivity>() {
                 }
 
                 override fun onError(e: Throwable) {
+                    v.showLoading(false)
                     mLoadMoreListener?.loadMoreFail()
                 }
 

@@ -25,7 +25,7 @@ class NavItemAdapter:BaseSectionQuickAdapter<NavSection,BaseViewHolder>(R.layout
         var position = 0
         navData?.forEach { it ->
             sectionData.add(NavSection(true,it.name))
-            headerPosition.put(it.name,position)
+            headerPosition[it.name] = position
             position++
             it.articles.forEach {it1->
                 sectionData.add(NavSection(it1))

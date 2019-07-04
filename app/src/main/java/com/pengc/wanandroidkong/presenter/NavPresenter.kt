@@ -32,6 +32,7 @@ class NavPresenter:XPresent<NavFragment>() {
                 }
 
                 override fun onError(e: Throwable) {
+                    v.showLoading(false)
                     v.showText(e.message)
                 }
 

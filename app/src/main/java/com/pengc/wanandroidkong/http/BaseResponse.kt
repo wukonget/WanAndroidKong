@@ -32,6 +32,7 @@ data class BaseResponse<T>(
     val errorCode: String? = null,
     val errorMsg: String? = null
 ) {
+
     /**
      * 请求是否成功
      *

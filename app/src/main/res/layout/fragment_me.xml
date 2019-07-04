@@ -3,14 +3,73 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <LinearLayout
+            android:id="@+id/loginLayout"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/big_margin"
+            android:paddingBottom="@dimen/big_margin"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_account_circle_blue_a100_24dp"
+        />
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="登陆/注册"
+                android:textSize="@dimen/textsize_normal"
+                android:textColor="@color/colorPrimaryDark"
+        />
+    </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/setting"
+    <RelativeLayout
+            android:id="@+id/userInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/setting"
+            android:padding="@dimen/big_margin"
+            android:background="@color/white"
+            android:visibility="gone"
+    >
+
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/userIconView"
+                android:src="@drawable/ic_account_circle_blue_a100_24dp"
+                android:layout_centerVertical="true"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/textsize_normal"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/userNameView"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:ellipsize="end"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@id/userIconView"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:textSize="@dimen/textsize_normal"
+            android:textColor="@color/white"
+            android:background="@android:color/holo_red_dark"
+            android:text="@string/logout"
+            android:id="@+id/logoutBtn"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:padding="@dimen/common_padding"
-    />
+                                                 android:layout_height="wrap_content"/>
 
 </LinearLayout>

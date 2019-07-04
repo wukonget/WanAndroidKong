@@ -63,6 +63,9 @@ ext {
             "webview"                       :"com.just.agentweb:agentweb:4.0.3-alpha@aar",
             "logInterceptor"             : "com.squareup.okhttp3:logging-interceptor:3.11.0",
             "autosize"                   : "me.jessyan:autosize:1.1.2",
+
+            "AndroidUtils"                  :"com.blankj:utilcodex:1.24.7",
+            "cookjar"                  :"com.github.franmontiel:PersistentCookieJar:v1.0.1",
     ]
 
 }

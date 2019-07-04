@@ -9,4 +9,24 @@
     <string name="me">我的</string>
     <string name="setting">设置</string>
     <string name="allall">所有/所有</string>
+    <string name="username">用户名(支持字母、数字和下划线  至少6个字符)</string>
+    <string name="password">密码(支持字母、数字和~!@#$%  至少6个字符)</string>
+    <string name="repassword">重复密码(支持字母、数字和~!@#$%  至少6个字符)</string>
+    <string name="loginTrans">loginTransitionName</string>
+    <string name="input_identi">输入验证码</string>
+    <string name="usernameDigits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345678_</string>
+    <string name="passwordDigits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345678~!@#$%</string>
+    <string name="logout">退出登陆</string>
+    <string name="type1"><u>默认</u></string>
+    <string name="type2"><u>工作</u></string>
+    <string name="type3"><u>学习</u></string>
+    <string name="type4"><u>生活</u></string>
+
+    <string name="order1"><u>完成日期顺序</u></string>
+    <string name="order2"><u>完成日期逆序</u></string>
+    <string name="order3"><u>创建日期顺序</u></string>
+    <string name="order4"><u>创建日期逆序</u></string>
+
+    <string name="status1"><u>未完成</u></string>
+    <string name="status2"><u>已完成</u></string>
 </resources>

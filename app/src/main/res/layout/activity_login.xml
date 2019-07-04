@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:paddingLeft="@dimen/big_margin"
+                android:paddingRight="@dimen/big_margin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView android:layout_width="wrap_content"
+               android:id="@+id/logo"
+               android:layout_height="wrap_content"
+               android:src="@mipmap/ic_launcher_foreground"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="@dimen/xxx_margin"
+               android:layout_marginBottom="@dimen/xxx_margin"
+    />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/logo"
+            android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/userNameLayout"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:hintEnabled="true"
+        >
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:inputType=""
+                    android:digits="@string/usernameDigits"
+                    android:textSize="@dimen/textsize_normal"
+                    android:maxLines="1"
+                    android:hint="@string/username"
+            />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:id="@+id/passwordLayout"
+                app:hintEnabled="true"
+                app:passwordToggleEnabled="true"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:hint="@string/password"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:textSize="@dimen/textsize_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/passwordDigits"
+                    android:inputType="textPassword"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:id="@+id/repasswordLayout"
+                android:visibility="gone"
+                app:hintEnabled="true"
+                app:passwordToggleEnabled="true"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/repassword"
+                    android:hint="@string/repassword"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:digits="@string/passwordDigits"
+                    android:textSize="@dimen/textsize_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+            />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+                android:id="@+id/identifyLayout"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/big_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="0dp"
+                    android:hint="@string/input_identi"
+                    android:id="@+id/input_identify"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textSize="@dimen/textsize_normal"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/text_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_small"
+                    android:textColor="@color/white"
+                    android:id="@+id/gene_identify"
+            />
+
+
+        </LinearLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="@dimen/big_margin"
+                android:layout_height="wrap_content">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/doLogin"
+                    android:layout_centerInParent="true"
+                    app:rippleColor="@color/colorPrimaryDark"
+                    android:src="@drawable/ic_keyboard_arrow_right_white_24dp"
+                    android:transitionName="@string/loginTrans"
+                    android:layout_marginBottom="@dimen/big_margin"
+                    android:layout_height="wrap_content"/>
+
+            <com.pengc.wanandroidkong.view.LoadingView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/loading"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/big_margin"
+                    app:LLoadingText="正在验证"
+                    android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="@dimen/textsize_normal"
+              android:id="@+id/register"
+              android:text="没有账号？注册一个"
+              android:layout_alignParentBottom="true"
+              android:layout_centerHorizontal="true"
+              android:layout_marginBottom="@dimen/activity_vertical_margin"
+              android:textColor="@color/colorPrimary"
+    />
+
+</RelativeLayout>

@@ -18,7 +18,6 @@ import com.pengc.wanandroidkong.presenter.SearchPresenter
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity:BaseActivity<SearchPresenter>() {
-
     private var loadingCount: Int = 0
     private var currentQueryText: String = ""
     private lateinit var mSearchListAdapter: MainListAdapter
@@ -118,7 +117,7 @@ class SearchActivity:BaseActivity<SearchPresenter>() {
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
-    fun showLoading(show: Boolean) {
+    override fun showLoading(show: Boolean) {
         if(show) loadingCount++ else loadingCount--
         swipeRefresh?.isRefreshing = loadingCount>0
     }

@@ -7,4 +7,5 @@
     <color name="thirty_black_trans">#4c000000</color>
     <color name="thirty_black">#4c4c4c</color>
     <color name="thirty_blue_trans">#4c49afcd</color>
+    <color name="thirty_white_trans">#4cffffff</color>
 </resources>

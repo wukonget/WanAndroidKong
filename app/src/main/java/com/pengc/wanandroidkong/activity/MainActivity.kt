@@ -9,6 +9,9 @@ import com.pengc.wanandroidkong.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainPresenter>() {
+    override fun showLoading(show:Boolean) {
+
+    }
 
     override fun beforeSetContent() {
         super.beforeSetContent()
@@ -19,6 +22,9 @@ class MainActivity : BaseActivity<MainPresenter>() {
         super.initData(savedInstanceState)
         initViewPager()
         initNav()
+
+//        LoginActivity.launch(this)
+
     }
 
     private fun initNav() {
