@@ -3,12 +3,14 @@
                 android:layout_width="match_parent"
                 android:id="@+id/back"
                 android:padding="@dimen/big_margin"
+                android:transitionName="@string/todoInputTrans"
                 android:layout_height="wrap_content">
 
     <ImageView
             android:visibility="invisible"
             android:id="@+id/doneIcon"
             android:layout_width="40dp"
+            android:layout_marginRight="@dimen/xxx_margin"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
@@ -52,15 +54,17 @@
             android:orientation="horizontal"
             android:gravity="right"
     >
-        <TextView android:layout_width="20dp" android:layout_height="20dp"
-                  android:background="@drawable/ic_edit_color_blue_400_24dp"
-        />
+        <!--<TextView android:layout_width="20dp" android:layout_height="20dp"-->
+                  <!--android:background="@drawable/ic_edit_color_blue_400_24dp"-->
+        <!--/>-->
         <TextView android:layout_width="20dp" android:layout_height="20dp"
                   android:layout_marginStart="@dimen/big_margin"
+                  android:id="@+id/btn_done"
                   android:background="@drawable/ic_done_green_400_24dp"
         />
         <TextView android:layout_width="20dp" android:layout_height="20dp"
                   android:layout_marginStart="@dimen/big_margin"
+                  android:id="@+id/btn_delete"
                   android:background="@drawable/ic_delete_red_400_24dp"
         />
 

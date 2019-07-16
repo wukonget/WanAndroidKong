@@ -22,4 +22,13 @@ abstract class BaseActivity<P : IPresent<*>> : XActivity<P>() {
     fun showMessage(msg:String){
         CommonUtils.showSnake(window.decorView,msg)
     }
+
+    fun backPressDelay(delay: Long) {
+        window.decorView.postDelayed(object : Runnable{
+            override fun run() {
+                onBackPressed()
+            }
+
+        },delay)
+    }
 }

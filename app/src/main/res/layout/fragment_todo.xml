@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -60,6 +61,7 @@
                     android:gravity="center"
                     android:textColor="@color/todo_type_text_color_sel"
                     android:layout_height="wrap_content"
+                    android:tag="0"
             />
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/todoType2"
@@ -68,6 +70,7 @@
                     android:textSize="@dimen/textsize_small"
                     android:text="@string/type2"
                     android:gravity="center"
+                    android:tag="1"
                     android:textColor="@color/todo_type_text_color_sel"
                     android:layout_height="wrap_content"
             />
@@ -76,6 +79,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:textSize="@dimen/textsize_small"
+                    android:tag="2"
                     android:text="@string/type3"
                     android:gravity="center"
                     android:textColor="@color/todo_type_text_color_sel"
@@ -85,6 +89,7 @@
                     android:id="@+id/todoType4"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:tag="3"
                     android:textSize="@dimen/textsize_small"
                     android:text="@string/type4"
                     android:gravity="center"
@@ -115,6 +120,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:textSize="@dimen/textsize_small"
+                    android:tag="1"
                     android:text="@string/order1"
                     android:gravity="center"
                     android:textColor="@color/todo_type_text_color_sel"
@@ -124,6 +130,7 @@
                     android:id="@+id/todoOrder2"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:tag="2"
                     android:textSize="@dimen/textsize_small"
                     android:text="@string/order2"
                     android:gravity="center"
@@ -135,6 +142,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:textSize="@dimen/textsize_small"
+                    android:tag="3"
                     android:text="@string/order3"
                     android:gravity="center"
                     android:textColor="@color/todo_type_text_color_sel"
@@ -145,6 +153,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:textSize="@dimen/textsize_small"
+                    android:tag="4"
                     android:text="@string/order4"
                     android:gravity="center"
                     android:textColor="@color/todo_type_text_color_sel"
@@ -176,6 +185,7 @@
                     android:textSize="@dimen/textsize_small"
                     android:text="@string/status1"
                     android:gravity="center"
+                    android:tag="0"
                     android:textColor="@color/todo_type_text_color_sel"
                     android:layout_height="wrap_content"
             />
@@ -185,6 +195,7 @@
                     android:layout_weight="1"
                     android:textSize="@dimen/textsize_small"
                     android:text="@string/status2"
+                    android:tag="1"
                     android:gravity="center"
                     android:textColor="@color/todo_type_text_color_sel"
                     android:layout_height="wrap_content"
@@ -209,16 +220,45 @@
                     android:textColor="@color/todo_type_text_color_sel"
                     android:layout_height="wrap_content"
             />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="OK"
+                      android:paddingTop="@dimen/text_padding"
+                      android:paddingBottom="@dimen/text_padding"
+                      android:paddingLeft="@dimen/big_padding"
+                      android:paddingRight="@dimen/big_padding"
+                      android:layout_marginLeft="@dimen/big_margin"
+                      android:layout_marginRight="@dimen/big_margin"
+                      android:id="@+id/filter"
+                      android:background="@drawable/bg_edit_corner_accent"
+            />
         </LinearLayout>
     </LinearLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefreshLayout"
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/addTodo"
+                android:transitionName="@string/todoInputTrans"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/big_margin"
+                android:layout_marginRight="@dimen/big_margin"
+                app:fabSize="mini"
+                android:src="@drawable/ic_alarm_add_white_24dp"
+        />
+    </RelativeLayout>
 </LinearLayout>

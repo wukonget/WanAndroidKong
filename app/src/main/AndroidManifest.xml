@@ -42,6 +42,10 @@
                   android:theme="@style/Theme.Design.Light.NoActionBar"
         />
 
+        <activity android:name=".activity.TodoInputActivity"
+                  android:theme="@style/Theme.Design.Light.NoActionBar"
+        />
+
 
         <meta-data
                 android:name="design_width_in_dp"

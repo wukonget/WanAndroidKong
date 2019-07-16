@@ -15,4 +15,9 @@ abstract class BaseLazyFragment<P:IPresent<*>> : XLazyFragment<P>() {
     open fun onActivityBackPressed():Boolean{
         return false
     }
+
+    override fun onStopLazy() {
+        super.onStopLazy()
+        showLoading(false)
+    }
 }

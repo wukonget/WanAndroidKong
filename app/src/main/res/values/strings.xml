@@ -29,4 +29,5 @@
 
     <string name="status1"><u>未完成</u></string>
     <string name="status2"><u>已完成</u></string>
+    <string name="todoInputTrans">todoInputTrans</string>
 </resources>

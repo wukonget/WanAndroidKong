@@ -9,6 +9,7 @@
     <dimen name="big_margin">16dp</dimen>
     <dimen name="xxx_margin">60dp</dimen>
     <dimen name="radius_16dp">16dp</dimen>
+    <dimen name="radius_2dp">2dp</dimen>
     <dimen name="textsize_title">20sp</dimen>
     <dimen name="textsize_big">16sp</dimen>
     <dimen name="textsize_normal">14sp</dimen>

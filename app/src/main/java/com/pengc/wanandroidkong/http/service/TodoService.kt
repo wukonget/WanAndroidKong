@@ -28,4 +28,37 @@ interface TodoService {
         @Field("orderby") orderby :Int = 4//1:完成日期顺序；2.完成日期逆序；3.创建日期顺序；4.创建日期逆序(默认)；
     ): Observable<BaseResponse<TodoResp>>
 
+    @FormUrlEncoded
+    @POST("/lg/todo/add/json")
+    fun addTodoData(
+        @Field("title") title :String,
+        @Field("content") content :String,
+        @Field("date") date :String,
+        @Field("type") type :Int = 0,
+        @Field("priority") priority :Int = 0
+    ): Observable<BaseResponse<String>>
+
+    @FormUrlEncoded
+    @POST("/lg/todo/update/{id}/json")
+    fun updateTodoData(
+        @Path("id") id :Long,
+        @Field("title") title :String,
+        @Field("content") content :String,
+        @Field("date") date :String,
+        @Field("type") type :Int = 0,
+        @Field("priority") priority :Int = 0
+    ): Observable<BaseResponse<String>>
+
+    @FormUrlEncoded
+    @POST("/lg/todo/done/{id}/json")
+    fun changeStatus(
+        @Path("id") id :Long,
+        @Field("status") status :Int
+    ): Observable<BaseResponse<String>>
+
+    @POST("/lg/todo/delete/{id}/json")
+    fun deleteTodoData(
+        @Path("id") id :Long
+    ): Observable<BaseResponse<String>>
+
 }

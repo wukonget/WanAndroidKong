@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:padding="@dimen/big_margin"
+              android:transitionName="@string/todoInputTrans"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="@dimen/big_padding"
+            android:layout_height="wrap_content"
+    >
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/page_title"
+                android:textSize="@dimen/textsize_normal"
+                android:textColor="@color/black"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/todo_input_back"
+                android:background="@drawable/ic_arrow_back_black_24dp"
+        />
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/todoTitleLayout"
+            app:hintEnabled="true"
+    >
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/todo_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@drawable/bg_edit_corner_r2"
+                android:inputType=""
+                android:textSize="@dimen/textsize_normal"
+                android:maxLines="1"
+                android:hint="标题"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_margin"
+            android:id="@+id/todoContentLayout"
+            app:hintEnabled="true"
+            android:layout_marginBottom="@dimen/big_margin"
+    >
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/todo_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType=""
+                android:lines="5"
+                android:background="@drawable/bg_edit_corner_r2"
+                android:textSize="@dimen/textsize_normal"
+                android:hint="待办事项"
+                android:gravity="top|left"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/todo_date"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:textSize="@dimen/textsize_normal"
+            android:maxLines="1"
+            android:paddingTop="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_margin"
+            android:paddingBottom="@dimen/big_padding"
+            android:hint="开始日期："
+            android:background="@drawable/bg_edit_corner_r2"
+            android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+            android:id="@+id/typeLayout"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/big_margin"
+            android:padding="@dimen/common_padding"
+            android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/textsize_normal"
+                android:text=" 类型: "
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/todoType1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/textsize_small"
+                android:text="@string/type1"
+                android:gravity="center"
+                android:textColor="@color/todo_type_text_color_sel"
+                android:layout_height="wrap_content"
+                android:tag="0"
+        />
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/todoType2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/textsize_small"
+                android:text="@string/type2"
+                android:gravity="center"
+                android:tag="1"
+                android:textColor="@color/todo_type_text_color_sel"
+                android:layout_height="wrap_content"
+        />
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/todoType3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/textsize_small"
+                android:tag="2"
+                android:text="@string/type3"
+                android:gravity="center"
+                android:textColor="@color/todo_type_text_color_sel"
+                android:layout_height="wrap_content"
+        />
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/todoType4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:tag="3"
+                android:textSize="@dimen/textsize_small"
+                android:text="@string/type4"
+                android:gravity="center"
+                android:textColor="@color/todo_type_text_color_sel"
+                android:layout_height="wrap_content"
+        />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_margin"
+            app:hintEnabled="true"
+            android:layout_marginBottom="@dimen/big_margin"
+    >
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/todo_priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@drawable/bg_edit_corner_r2"
+                android:inputType="number"
+                android:textSize="@dimen/textsize_normal"
+                android:maxLines="1"
+                android:hint="优先级（正整数）"
+                android:gravity="center_vertical"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="0dp"
+          android:layout_weight="1"
+    />
+
+    <LinearLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_normal"
+                android:text="取消"
+                android:layout_weight="1"
+                android:id="@+id/btn_left"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/big_margin"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_normal"
+                android:text="确定"
+                android:layout_weight="1"
+                android:id="@+id/btn_right"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>
